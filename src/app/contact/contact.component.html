@@ -1,0 +1,65 @@
+<div class="container">
+<form [formGroup]="formularioContacto" (ngSubmit)="enviar()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input [ngClass]="{'is-invalid': hasError('nombre','required') || hasError('nombre','minlength')}"
+        type="text" class="form-control" id="name" formControlName="nombre">
+        <div class="text-danger" *ngIf="hasError('nombre','required')">Nombre requerido </div>
+        <div class="text-danger" *ngIf="hasError('nombre','minlength')">Se necesita una longitud minima de 3 </div>
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Apellido</label>
+        <input [ngClass]="{'is-invalid': hasError('apellido','required') || hasError('apellido','minlength')}"
+        type="text" class="form-control" id="name" formControlName="apellido">
+        <div class="text-danger" *ngIf="hasError('apellido','required')">Apellido requerido </div>
+        <div class="text-danger" *ngIf="hasError('apellido','minlength')">Se necesita una longitud minima de 3 </div>
+    </div>
+    <div class="mb-3">
+        <label for="sexo">Selecciona el tipo de identificacion</label>
+        <select class="form-select" aria-label="Default select example" id="sexo" formControlName="tipoIdentificacion">
+            <option value="INE">INE</option>
+            <option value="Pasaporte mexicano">Pasaporte mexicano</option>
+            <option value="Curp">Curp</option>
+            <option value="Documento extranjero">Documento extranjero</option>
+        </select>
+    </div>
+    
+    <div class="mb-3" *ngIf="mostrarIdentificacion">
+        <identificacion-input [tipoIdentificacion]="tipoIdentificacion"/>
+        
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input [ngClass]="{'is-invalid': hasError('email','required') || hasError('email','email')}"
+        type="email" class="form-control" id="email" formControlName="email">
+        <div class="text-danger" *ngIf="hasError('email','email')">email invalido </div>
+        <div class="text-danger" *ngIf="hasError('email','required')">email requerido </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+</div>
+
+
+
+
+
+<!-- con alt + shift mas abajo se puede copiar una linea de codigo -->
+
+
+<!-- Formulario de plantilla -->
+
+<!-- <div class="container">
+<form #miForumulario="ngForm" (ngSubmit)="enviar()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="email" class="form-control" id="name" 
+        [(ngModel)]="usuario.nombre" requiered [ngModelOptions]="{standalone: true}">
+      </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" 
+      [(ngModel)]="usuario.email" requiered [ngModelOptions]="{standalone: true}">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div> -->

@@ -1,0 +1,7 @@
+<form [formGroup]="formularioDocumento">
+    <label for="name" class="form-label">{{variableNueva}}</label>
+    <input [ngClass]="{'is-invalid': hasError('identificacion','required') || hasError('curp','minlength')}"
+    type="text" class="form-control" id="name" formControlName="identificacion">
+    <div class="text-danger" *ngIf="hasError('identificacion','required')">{{variableNueva}} requerido </div>
+    <div class="text-danger" *ngIf="hasError('identificacion','minlength')">Se necesita una longitud minima de 3 en el numero de {{variableNueva}} </div>
+</form>

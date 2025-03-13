@@ -1,0 +1,59 @@
+<!-- Angular corre sobre node, para instalar angular, es necesario instalar el boostrap mediante node
+ npm i bootstrap@5.3.2 
+ 
+ cuando vayas a importar el css de bootstrap, importalo en el archivo styles.css,
+ verifica que lo hagas en el build y no en la seccion de test
+
+ el routerLink es una directiva de angular que permite navegar entre las rutas de la aplicacion,
+ en este caso lo usamos para navegar entre componentes, en el caso de que se quiera navegar a una url externa
+ se puede usar el atributo href, pero no es recomendable, ya que se perderia la funcionalidad de single page application,
+  que es la caracteristica principal de angular. tambien se podria hacer en vez de routerlink usar href, pero eso
+  provoca que se recargue toda la pagina, lo cual no es recomendable.
+
+  para usar el RouterLink es importante importar el modulo RouterModule en el archivo app.component.ts (eso en versiones superiores a angular 16), 
+  en anteriores seria en app.module.ts. Tambien tener la ruta definida en el archivo app-routes.ts
+ -->
+
+ <!-- Estructuras de Control (ngIf, ngFor, ngSwitch, ng-container):
+  el ngif es una directiva estructural que permite mostrar o no mostrar un elemento del DOM dependiendo de una condicion,
+  por ejemplo si una variable es true o false se puede mostrar o no mostrar un elemento del DOM
+  el ngclass es una directiva que permite aplicar una clase de css a un elemento del DOM dependiendo de una condicion,
+  por ejemplo si una variable es true o false se puede aplicar una clase de css a un elemento del DOM,
+  ngstyle es una directiva que permite aplicar un estilo de css a un elemento del DOM dependiendo de una condicion,
+  por ejemplo si una variable es true o false se puede aplicar un estilo de css a un elemento del DOM
+  el ngfor es una directiva estructural que permite iterar sobre una lista de elementos y mostrarlos en el DOM
+ -->
+
+ <!-- el ngcontainer puede ser usado para separar codigos de html y combinarlo
+  con ngif para ver si se muestra esa seccion o no, en product-detail utilizamos
+  un loading, para esperar 1.5 segundos y despues de ahi mostrar la informacion del producto-->
+ <!-- <p>12/03/2025</p>
+ <p>Aqui empiezo <a href="https://www.youtube.com/watch?v=soInCF7nbDw&t=11763s">inicio</a></p>
+<p>Hasta aqui termine esta practica<a href="https://www.youtube.com/watch?v=soInCF7nbDw&t=11763s ">fin</a></p>
+
+<p>Mire bootstrap, navegacion, rutas, y estructuras de control (ngIf, ngFor, ngSwitch, ng-container)</p> -->
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Proyecto</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="products">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <button type="button" class="btn btn-primary">Primary</button> -->
+
+<router-outlet></router-outlet>

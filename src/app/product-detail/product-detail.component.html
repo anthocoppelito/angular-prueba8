@@ -1,0 +1,21 @@
+<!-- para utilizar ngstyle, hay que importar CommonModule-->
+<!-- <p [ngStyle]="{color: color}">Detalle: {{product}}</p> -->
+
+<!-- <p>El color de tu producto es {{color}}</p> -->
+ <!-- ngif verifica si su expresion es true para aparecer -->
+
+
+
+ 
+
+<ng-container *ngIf="!loading">
+    <h1>Producto: {{product?.name}}</h1>
+    <h2 [ngStyle]="{'color': color}">Precio: {{product?.price | currency}}</h2>
+    <p *ngIf="product?.description">Detalle: {{product?.description}}</p>
+
+
+</ng-container>
+
+<ng-container *ngIf="loading" >
+    <i style="color:blue">Cargando informacion...</i>
+</ng-container>

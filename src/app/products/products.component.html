@@ -1,0 +1,24 @@
+<!-- Es muy importante importar commonmodule para usar varias cosas -->
+
+<h1>Productos de limpieza</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productsList">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td [ngClass] = "{'red-color': product.price > 5000}"> {{product.price | currency}}</td>
+        <td>{{product.description}}</td>
+        <td><button type="button" class="btn btn-outline-primary" [routerLink]="['/products',product.id]">Detalle</button></td>
+        <!-- <td><button type="button" class="btn btn-outline-primary" [routerLink]="['/products',red,product.name]">Detalle</button></td> -->
+      </tr>
+    </tbody>
+  </table>
