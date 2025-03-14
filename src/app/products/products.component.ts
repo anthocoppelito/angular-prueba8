@@ -4,7 +4,7 @@ import { productsList } from './products.mock';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { IProduct } from '../models/product.model';
 import { ApiService } from '../services/api.service';
-//import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // se concluye que no se puede traer la api externa de esta manera debido a incompatibilidad de versiones en angular
 //
@@ -15,7 +15,7 @@ import { ApiService } from '../services/api.service';
     RouterModule,
     CurrencyPipe,
     CommonModule,
-    //HttpClientModule,
+    HttpClientModule,
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'

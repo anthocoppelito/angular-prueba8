@@ -11,6 +11,7 @@ export class ApiService {
   private baseURL = 'https://fakestoreapi.com/products'
 
   constructor(private _httpClient: HttpClient) { }
+   //private _httpClient = inject(ApiService);
   //get products
   public getAllProducts(): Observable<IProduct[]>{  
     return this._httpClient.get<IProduct[]>(`${this.baseURL}`);

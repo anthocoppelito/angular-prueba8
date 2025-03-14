@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
@@ -12,7 +12,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
     RouterModule,
     FormsModule,//formularios de tipo plantilla
     ReactiveFormsModule,//formularios reactivos
-    HttpClientModule //para hacer peticiones http
+    // HttpClientModule //para hacer peticiones http
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
